@@ -54,12 +54,11 @@ module Isucon4
       end
 
       def attempt_login(login, password)
-        user = db.xquery('SELECT * FROM users WHERE login = ?', login).first
-
         if ip_banned?
           #login_log(false, login, user ? user['id'] : nil)
           return [nil, :banned]
         end
+        user = db.xquery('SELECT * FROM users WHERE login = ?', login).first
 
         if user_locked?(user)
           #login_log(false, login, user['id'])
@@ -139,7 +138,7 @@ module Isucon4
     end
 
     get '/' do
-      erb :index, layout: :base
+      erb :index, layout: :index
     end
 
     post '/login' do

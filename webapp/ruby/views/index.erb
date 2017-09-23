@@ -8,15 +8,12 @@
     <p>また、残高照会のみなど、必要のない場面で乱数表の入力を求められても、<br>絶対に入力しないでください。</p>
   </div>
 </div>
-
 <div class="page-header">
   <h1>ログイン</h1>
 </div>
-
 <% if flash[:notice] %>
   <div id="notice-message" class="alert alert-danger" role="alert"><%= flash[:notice] %></div>
 <% end %>
-
 <div class="container">
   <form class="form-horizontal" role="form" action="/login" method="POST">
     <div class="form-group">

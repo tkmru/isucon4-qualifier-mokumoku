@@ -78,15 +78,7 @@ module Isucon4
       end
 
       def current_user
-        return @current_user if @current_user
-        return nil unless session[:user_id]
-
-        @current_user = db.xquery('SELECT * FROM users WHERE id = ?', session[:user_id].to_i).first
-        unless @current_user
-          session[:user_id] = nil
-          return nil
-        end
-
+        @current_user = session[:user_id]
         @current_user
       end
 
